@@ -3,6 +3,8 @@
   --fg-default: #1f2328;
   --fg-muted: #656d76;
   --success-fg: #1a7f37;
+  --link: #0969da;
+  --border: #d0d7de;
   --header-bg: #24292f;
   --header-fg: #ffffff;
   --header-fg-muted: rgba(255, 255, 255, 0.7);
@@ -14,6 +16,8 @@
   --fg-default: #e6edf3;
   --fg-muted: #8d96a0;
   --success-fg: #3fb950;
+  --link: #4493f8;
+  --border: #30363d;
   --header-bg: #161b22;
   --header-fg: #e6edf3;
   --header-fg-muted: rgba(230, 237, 243, 0.7);
@@ -31,6 +35,9 @@ body {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   background: var(--bg);
   color: var(--fg-default);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
@@ -39,4 +46,8 @@ body {
 
 a {
   text-decoration: none;
+}
+
+main {
+  flex: 1;
 }
