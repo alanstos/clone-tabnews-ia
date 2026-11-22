@@ -4,6 +4,12 @@
   padding: 24px 16px 48px;
 }
 
+.heading {
+  margin: 0 0 16px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
 .sponsored {
   padding-left: 52px;
   margin-bottom: 8px;

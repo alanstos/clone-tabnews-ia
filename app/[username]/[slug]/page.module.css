@@ -1,0 +1,18 @@
+.article {
+  max-width: 1032px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+}
+
+.title {
+  margin: 8px 0 24px;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+}
+
+.paragraph {
+  margin: 0 0 16px;
+  font-size: 16px;
+}

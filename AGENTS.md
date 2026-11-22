@@ -22,8 +22,11 @@ npm start      # servir o build
 - `app/layout.js` — layout raiz, header e script que aplica o tema salvo
 - `app/page.js` — Relevantes (`/`)
 - `app/recentes/page.js` — Recentes (`/recentes`)
+- `app/[username]/page.js` — conteúdos de um autor (`/devcuriosa`); 404 se não houver
+- `app/[username]/[slug]/page.js` — página de um conteúdo (`/devcuriosa/conteudo-1`); 404 se não existir
+- `app/icon.svg` — favicon
 - `components/` — `Header`, `NavLinks` (client), `ThemeToggle` (client), `ContentList`, `Footer`, `ConfettiOnLoad` (client, `react-confetti`)
-- `lib/contents.js` — camada de dados: `getContents({ strategy })` e `getSponsoredContent()`
+- `lib/contents.js` — camada de dados: `getContents({ strategy })`, `getContentsByUser(username)`, `getContent(username, slug)` e `getSponsoredContent()`
 - `lib/mock-contents.js` — dados mockados (datas relativas ao momento atual)
 - `lib/tabnews.js` — `getTotalPublishedContents()`: lê da API pública do TabNews real o total de publicações (cabeçalho `x-pagination-total-rows`)
 - `next.config.js` — liga o log de `fetch` do servidor no terminal do `npm run dev` (`logging.fetches.fullUrl`)
@@ -38,3 +41,4 @@ npm start      # servir o build
 - Componentes são Server Components por padrão; `"use client"` apenas quando há interação/hook do navegador.
 - O rodapé é o **único** ponto que consulta a API real do TabNews (`cache: "no-store"`, a cada acesso, timeout de 5 s). Se ela falhar, mostra uma mensagem em vez de quebrar a página. Fica dentro de `<Suspense>` para não atrasar a lista.
 - O confete (`react-confetti`) dispara uma vez no carregamento da página e é removido ao terminar.
+- Links de posts e autores na lista usam `prefetch={false}`: as páginas são dinâmicas e pré-carregar dezenas delas sobrecarrega o servidor a cada visita.
