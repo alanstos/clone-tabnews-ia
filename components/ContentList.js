@@ -12,13 +12,22 @@ export function ContentMeta({ content }) {
     <Meta>
       <span>{pluralize(content.tabcoins, "tabcoin", "tabcoins")}</span>
       <span aria-hidden="true">·</span>
-      <span>{pluralize(content.children_deep_count, "comentário", "comentários")}</span>
+      <span>
+        {pluralize(content.children_deep_count, "comentário", "comentários")}
+      </span>
       <span aria-hidden="true">·</span>
-      <Link href={`/${content.owner_username}`} prefetch={false} className={styles.metaLink}>
+      <Link
+        href={`/${content.owner_username}`}
+        prefetch={false}
+        className={styles.metaLink}
+      >
         {content.owner_username}
       </Link>
       <span aria-hidden="true">·</span>
-      <time dateTime={content.published_at} title={new Date(content.published_at).toLocaleString("pt-BR")}>
+      <time
+        dateTime={content.published_at}
+        title={new Date(content.published_at).toLocaleString("pt-BR")}
+      >
         {timeAgo(content.published_at)}
       </time>
     </Meta>
@@ -44,7 +53,11 @@ export default function ContentList({ contents, sponsored, heading }) {
             {/* Sem prefetch: as páginas são dinâmicas e a lista tem dezenas de
                 links; pré-carregar todos geraria ~40 renderizações no servidor
                 a cada visita. A página é buscada só no clique. */}
-            <Link href={`/${content.owner_username}/${content.slug}`} prefetch={false} className={styles.title}>
+            <Link
+              href={`/${content.owner_username}/${content.slug}`}
+              prefetch={false}
+              className={styles.title}
+            >
               {content.title}
             </Link>
             <ContentMeta content={content} />

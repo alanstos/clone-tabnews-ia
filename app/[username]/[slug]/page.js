@@ -8,7 +8,9 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }) {
   const { username, slug } = await params;
   const content = await getContent(username, slug);
-  return { title: content ? `${content.title} · TabNews` : "Não encontrado · TabNews" };
+  return {
+    title: content ? `${content.title} · TabNews` : "Não encontrado · TabNews",
+  };
 }
 
 export default async function ContentPage({ params }) {

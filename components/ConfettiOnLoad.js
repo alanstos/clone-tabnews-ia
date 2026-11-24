@@ -14,13 +14,13 @@ export default function ConfettiOnLoad() {
 
   useEffect(() => {
     // Respeita quem pediu menos animação no sistema: nem baixa a biblioteca.
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDone(true);
+    // Sem setState aqui: `size` continua null e o componente não renderiza nada.
+    if (done || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
-    if (done) return;
 
-    const update = () => setSize({ width: window.innerWidth, height: window.innerHeight });
+    const update = () =>
+      setSize({ width: window.innerWidth, height: window.innerHeight });
     update();
     window.addEventListener("resize", update);
     // Ao terminar (done = true), o efeito é refeito e o listener removido.
@@ -36,7 +36,12 @@ export default function ConfettiOnLoad() {
       numberOfPieces={300}
       recycle={false}
       onConfettiComplete={() => setDone(true)}
-      style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 1000 }}
+      style={{
+        position: "fixed",
+        inset: 0,
+        pointerEvents: "none",
+        zIndex: 1000,
+      }}
     />
   );
 }

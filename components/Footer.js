@@ -6,12 +6,15 @@ async function TotalContents() {
   const total = await getTotalPublishedContents();
 
   if (total === null) {
-    return <span>Não foi possível carregar o total de conteúdos do TabNews.</span>;
+    return (
+      <span>Não foi possível carregar o total de conteúdos do TabNews.</span>
+    );
   }
 
   return (
     <span>
-      <strong>{total.toLocaleString("pt-BR")}</strong> conteúdos publicados no TabNews
+      <strong>{total.toLocaleString("pt-BR")}</strong> conteúdos publicados no
+      TabNews
     </span>
   );
 }
@@ -23,7 +26,12 @@ export default function Footer() {
         <Suspense fallback={<span>Carregando total de conteúdos…</span>}>
           <TotalContents />
         </Suspense>
-        <a href={TABNEWS_URL} target="_blank" rel="noopener noreferrer" className={styles.link}>
+        <a
+          href={TABNEWS_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.link}
+        >
           Visitar o TabNews oficial ↗
         </a>
       </div>

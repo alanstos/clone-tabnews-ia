@@ -18,7 +18,11 @@ export default function NavLinks() {
         <Link
           key={href}
           href={href}
-          className={pathname === href ? `${styles.navLink} ${styles.active}` : styles.navLink}
+          className={
+            pathname === href
+              ? `${styles.navLink} ${styles.active}`
+              : styles.navLink
+          }
           aria-current={pathname === href ? "page" : undefined}
         >
           {label}

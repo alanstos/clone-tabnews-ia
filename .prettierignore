@@ -1,0 +1,11 @@
+# Gerados / dependências
+.next
+out
+build
+node_modules
+package-lock.json
+
+# Arquivos de ferramentas de IA (não fazem parte do código da aplicação)
+.agents
+.claude
+skills-lock.json
